@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성 선택자</title>
+    <style>
+        a[href="http://www.paullab.co.kr"] { /*태그[속성="변수"] -> 속성값이 변수와 완벽히 일치하는 태그를 선택 */
+            font-size: 48px;
+        }
+        a[href~="paul"] {                   /*  태그[속성~="변수"] ->속성이름이 변수를 포함하는 것을 선택(단어) */
+            font-weight: normal;
+        }
+        a[href*="naver"] {                 /* 태그[속성*="변수"] -> 속성이름이 변수에 포함문자를 포함하기만 하면 된다. (문장)*/
+            font-size: 30px;
+        }
+        a[href^="http"] {                   /* 속성 의 속성값이 변수 로 시작하는 태그를 선택합니다 */
+        color:violet;
+        }
+        a[href$="kr"]{
+        color: black;
+        }
+        a[href$=".pdf"]{                    /*속성 의 속성값이 변수로 끝나는 요소를 선택합니다.*/
+        color:turquoise;
+        }
+        a[href|="http"]{                    /*`속성` 의 속성값이 `변수` 이거나 `변수` 로 시작하는 태그를 선택합니다.*/
+        color: black;
+        }
+    </style>
+</head>
+<body>
+    <a href="http://www.paullab.co.kr">클릭해!</a>
+    <a href="#">클릭해!</a>
+    <a href="http://www.naver.com">클릭하쇼!</a>
+    <a href="a.pdf">pdf파일</a>
+</body>
+</html>

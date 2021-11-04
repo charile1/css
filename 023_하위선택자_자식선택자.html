@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selector</title>
+    <style>
+        ul p { /* ul 안 p 태그, p는 ul의 자손*/
+            color: red;
+        }
+        li > p { /*p는 li의 자손이며, 자식은 아니므로 >(자식선택자)를 씁니다, 자손은 모든 하위 요소를 의미하고 자식은 바로 아래의  하위 요소에만 적용합니다.  */
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <p>hello world</p>
+        </li>
+
+        <li>
+            <div>
+                <div>
+                    <div> 
+                       <p>hello world</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li>hello world</li>
+        <li>hello world</li>
+    </ul>
+</body>
+</html>

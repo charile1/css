@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상요소 선택자</title>
+    <style>
+    p::after {             
+        content: 'cm'
+    }
+    p::before {
+        content: '!!'
+    }
+    li::after{
+        content: "|"
+    }
+    li:first-child::before{
+        display:none;
+    }
+        /*  ::before 해당 태그의 앞에 놓여진다.
+        ::after 해당 태그의 다음 위치에 놓여진다.*/
+        /* 헤더나 푸터에 구분선을 넣고 싶을 때 사용한다. 로그인 | 회원가입  
+            가상 요소는 인라인 요소 이므로 display:block; 을 해줘야 한다. */
+
+    /*가상요소선택자는 콜론이 두개*/
+    </style>
+</head>
+<body>
+    <p>10</p>   
+    <li>로그인</li>
+    <li>회원가입</li>
+    <ul>
+        <li>로그인</li>
+        <li>회원가입</li>
+    </ul> 
+</body>
+</html>

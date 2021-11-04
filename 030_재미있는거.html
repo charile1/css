@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>재미있는거</title>
+    <style>
+        div {
+            width: 500px;
+            height: 500px;
+            background: brown;
+            transition: all .5s; 
+            /*여기서 all 은 width,height 둘다뜻한다.*/
+            /* transition은 전환, */
+        }
+
+         /*hover는 마우스오버했을떄를 뜻한다*/
+         /*600px중에 100px을 깍아낸다. 보통 퍼센트보다 픽셀*/
+
+        div:hover {                 
+            border-radius: 100px;   
+            width: 600px;
+            height: 600px;
+            background: burlywood;
+            transform: translateX(100px) translateY(100px) rotate(720deg);  
+            /* translate:100px 200px -> 오른쪽으로 100px, 아래로 200px 이동 */
+            /* rotate 시계 방향으로 720도 회전 , 음수면 반시계방향 */
+            
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
