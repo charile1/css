@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<title>float 문제점 해결</title>
+<style>
+	.wrap{
+        border: 4px solid blue;
+        overflow: hidden;
+	}
+        
+        /*자식요소에 플롯을 주니까 포함을 못시키고 둥둥 떠다닌다. 해결 방법은 1. 부모 요소에 overflow:hidden; 추가한다. 2. 부모 요소의 **높이 값을 직접 지정해준다. 3. clear 속성 사용한다.*/
+        
+	.content{
+        float: left;
+        margin: 5px;
+        height: 20px; 
+        border: 2px solid green;
+	}
+</style>
+</head>
+<body>
+        <div class="wrap">
+        <div class="content">내용1</div>
+        <div class="content">내용2</div>
+        </div>
+</body>
+</html>

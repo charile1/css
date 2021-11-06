@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>em과 rem의 차이  </title>
+    <style>
+        html, body {
+            font-size: 10px;
+        }
+        p {
+          font-size: 2em;
+          font-weight: 700;
+        }
+
+        div {
+            font-size: 2em;
+        }
+
+        .one {
+            font-size: 2rem;
+        }
+        /* rem 단위는 문서의 최상위 요소, 즉 html 요소의 크기의 몇 배인지로 크기를 정합니다. */
+    </style>
+</head>
+<body>
+    <p>hello world</p>
+    <!-- em, %, rem, vw, vh -->
+    em의 처음 크기는 body의 크기인 10px 입니다.
+    <div>
+       <br> em의 크기는 20px * 2 = 20px 입니다.
+        <!-- 20px * 2 = 40px -->
+        <div>
+            <br> em의 크기는 40px * 2 = 40px 입니다.
+            <!-- 40px * 2 = 80px -->
+            <div>
+                <br> em의 크기는 40px * 2 = 80px 입니다.
+                <!-- 80px * 2 = 160px -->
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <div class="one">
+                hello world
+                <!-- Html이 10px 이므로 2rem은 20px -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
