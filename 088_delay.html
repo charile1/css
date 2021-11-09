@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transition, transform</title>
+    <style>
+    div{
+        box-sizing: border-box;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        transition: all 1s;
+        text-align: center;
+        padding: 40px 10px 10px;
+        margin: 20px;
+    }
+    div:hover{
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+    }
+    .one{
+        transition-delay: 1s;
+        
+    }
+    .two{
+        transition-delay: 2s;
+    }
+    .three{
+        transition-delay: 3s;
+    }
+    </style>
+</head>
+<body>
+    <div>hello world</div>
+    <div class="one">1초</div>
+    <div class="two">2초</div>
+    <div class="three">3초</div>
+</body>
+</html>
