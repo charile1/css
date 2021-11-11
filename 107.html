@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+    @media print {
+        abbr::after {
+            /* abbr의 마지막 자식 요소를 만들어주고 */
+            /* attr() : css 속성 함수입니다. (title)값->인수, 인자라고함 애트리뷰트를 불러온다.*/
+    content: ' ('attr(title)')'
+        }
+    }
+    @media screen and (-webkit-device-pixel-ratio : 2){ 
+        body{background:royalblue;}
+    }
+
+    div {
+        margin: 50px;
+
+
+    }
+    </style>
+</head>
+<body>
+    <abbr title="world wide web consortium">w3c</abbr>
+    <div></div>
+</body>
+</html>

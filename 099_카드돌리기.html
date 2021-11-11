@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드돌리기</title>
+    <style>
+        @keyframes 돌려돌려 {
+            from {
+                transform: rotateY(0);
+            }
+            to{
+                transform: rotateY(360deg);
+            }   
+        }
+
+        .원본 {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            perspective: 400px;
+            margin: 100px auto;
+            transform-style: preserve-3d;
+            /* 상속이 안되므로 또 회전패널한테도 줘야한다. */
+        }
+        
+        .회전패널 {
+            position: absolute;
+            font-size: 32px;
+            width: 200px;
+            height: 200px;
+            /* transform: rotateY(30deg); */
+            /* 30도 90도 150도 등등 으로 돌려보기, 글자가 뒤집힌다. */
+            animation: 돌려돌려 20s;
+            transform-style: preserve-3d;
+
+        }
+        
+        .회전패널앞 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: violet;
+            backface-visibility: hidden;
+        }
+
+        .회전패널뒤 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: yellow;
+            transform: rotateY(180deg);
+            backface-visibility: hidden;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="원본">
+        <div class="회전패널">
+            <div class="회전패널앞">앞</div>
+            <div class="회전패널뒤">뒤</div>
+            <!-- z-index를 안주면 뒤가 앞을 가려버린다. -->
+
+        </div>
+    </div>
+</body>
+</html>
