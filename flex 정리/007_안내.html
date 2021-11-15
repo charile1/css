@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex 실전 예제</title>
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+
+        .info-list_content {
+            display: flex;
+            line-height: 20px;
+        }
+
+        .info-list_content::before {
+            content: '🦁';
+        }
+
+    </style>
+
+</head>
+<body>
+   <ul>
+       <li>
+           <div class="info-list_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident atque repudiandae molestias, rem at rerum? Ab voluptate soluta mollitia. Neque sunt perspiciatis fuga nisi porro sequi reiciendis cumque impedit quod.</div>
+       </li>
+       <li>
+        <div class="info-list_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident atque repudiandae molestias, rem at rerum? Ab voluptate soluta mollitia. Neque sunt perspiciatis fuga nisi porro sequi reiciendis cumque impedit quod.</div>
+        </li>
+        <li>
+            <div class="info-list_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident atque repudiandae molestias, rem at rerum? Ab voluptate soluta mollitia. Neque sunt perspiciatis fuga nisi porro sequi reiciendis cumque impedit quod.</div>
+        </li>
+        <li>
+            <div class="info-list_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident atque repudiandae molestias, rem at rerum? Ab voluptate soluta mollitia. Neque sunt perspiciatis fuga nisi porro sequi reiciendis cumque impedit quod.</div>
+        </li>
+   </ul>
+</body>
+</html>

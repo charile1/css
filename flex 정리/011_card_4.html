@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+       
+        a {
+            color: black;
+        }
+        
+        body {
+            box-sizing: border-box;
+        }
+
+        /* design */
+
+        header {
+            border: 10px solid black;
+            width: 100%;
+            height: 100px;
+            background-color: #f9f9f9;
+        }
+
+        .content {
+            display: flex; 
+            background: white;
+        }
+
+        .main {
+            border: 10px solid blue;
+        }
+
+       .content .cont-box {
+            border: 10px solid #5F9EA0;
+            background: #F5F5DC;
+            width: 70%;
+        }
+
+        .content .side-box {
+            border: 10px solid #FFEBCD;
+            width: 30%;
+            background: #FAEBD7;
+        }
+
+        .side-box li {
+            padding: 20px;
+        }
+
+        footer {
+            border: 10px solid black;
+            width: 100%;
+            height: 100px;
+            background-color: #f9f9f9;
+
+            
+        }
+
+        @media screen and (max-width:800px) {
+
+            .content {
+                flex-direction: column-reverse;  
+            }
+
+            header {
+                width: auto;
+            }
+            
+            .content .side-box {
+                width: auto;
+                padding: 10px;
+            }
+           
+            .content .side-box .side-list {
+                display: flex;
+            }
+
+            .content .cont-box {
+                width: auto;
+            }
+
+            .cont-box  {
+                padding: 10px;
+            }
+
+            footer {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1> header</h1>
+                <ul> </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        <section class="cont-box">
+            <h2> 콘텐츠가 들어갈 곳 입니다</h2>
+            <article>
+                <ul class="container">
+                    <li class="item">
+                        <img width="100px" src="../img/a.jpg" alt="섭지코지 이미지 입니다." class="item-img">
+                        <p class="item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis aperiam animi eius quos dolore ex autem, nemo minima ea aspernatur, voluptatum minus voluptatibus doloremque officiis tenetur suscipit earum illum placeat.</p>
+                    </li>
+                    <li class="item">
+                        <img width="100px" src="../img/a.jpg" alt="섭지코지 이미지 입니다." class="item-img">
+                        <p class="item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis aperiam animi eius quos dolore ex autem, nemo minima ea aspernatur, voluptatum minus voluptatibus doloremque officiis tenetur suscipit earum illum placeat.</p>
+                    </li>
+                    <li class="item">
+                        <img width="100px" src="../img/a.jpg" alt="섭지코지 이미지 입니다." class="item-img">
+                        <p class="item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis aperiam animi eius quos dolore ex autem, nemo minima ea aspernatur, voluptatum minus voluptatibus doloremque officiis tenetur suscipit earum illum placeat.</p>
+                    </li>
+                    <li class="item">
+                        <img width="100px" src="../img/a.jpg" alt="섭지코지 이미지 입니다." class="item-img">
+                        <p class="item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis aperiam animi eius quos dolore ex autem, nemo minima ea aspernatur, voluptatum minus voluptatibus doloremque officiis tenetur suscipit earum illum placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis aperiam animi eius quos dolore ex autem, nemo minima ea aspernatur, voluptatum minus voluptatibus doloremque officiis tenetur suscipit earum illum placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis aperiam animi eius quos dolore ex autem, nemo minima ea aspernatur, voluptatum minus voluptatibus doloremque officiis tenetur suscipit earum illum placeat.</p>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="side-box">
+            <h3> 사이드메뉴가 들어갑니다</h3>
+            <aside>
+                <nav>
+                    <ul class="side-list">     
+                    <li class="logo">
+                        <a href="#">LOGO</a>
+                    </li>
+                    <li class="item">
+                        <a href="#">ABOUT ME</a>
+                    </li>
+                    <li class="item">
+                        <a href="#">SKILLS</a>
+                    </li>
+                    <li class="item">
+                        <a href="#">BLOG</a></ul>
+                </nav>
+            </aside>
+        </section>
+    </main>
+
+    <footer>
+        copyright
+    </footer>
+</body>
+</html>
