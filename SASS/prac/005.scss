@@ -1,0 +1,15 @@
+// @at-root 이용하기
+.article {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    .article-content {
+        font-size: 14px;
+        opacity: 0.7;
+        @at-root i {
+            opacity: 0.5;
+        }
+    }
+  }
+//   공통된 css들은 @at-root를 이용해서 밖으로 빼준다. 
