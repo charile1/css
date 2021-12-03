@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        function randomFunc(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+
+        let lottoArr = [];
+        function lottoGenerator() {
+            while (lottoArr.length < 6) {
+                let result = randomFunc(1, 46);
+                let isGot = false;
+
+                // 중복 판단
+                lottoArr.forEach(element => {
+                    if (element === result) {
+                        isGot = true;
+                    }
+                });
+
+                // 중복이 없다면 배열에 추가
+                if (!isGot) {
+                    lottoArr.push(result);
+                }
+            }
+            return lottoArr;
+        }
+        console.log(lottoGenerator());
+    </script>
+
+    <!-- 설명 -->
+    <script>
+      // 랜덤 숫자 뽑는함수
+    function randomFunc(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+    }
+    // 뽑은 번호 담을 배열 준비
+    let lottoArr = [];
+    // 6개 뽑아서 lottoArr에 담는함수
+    function lottoGenerator() {
+        // 배열이 꽉차기 전까지 반복 (6개 까지)
+        while (lottoArr.length < 6) {
+            let result = randomFunc(1, 46);
+            // 중복 판단하기위해 필요한 변수
+            let isGot = false;
+
+            // 중복 판단
+            // lottoArr 의 요소를 순회
+            lottoArr.forEach((element) => {
+                // 요소가 result 와 같다면 중복!
+                if (element === result) {
+                    // 중복됐다고 표시!
+                    isGot = true;
+                }
+            });
+        }
+        // 여기에 도달했을땐 배열이 꽉~채워짐
+        return lottoArr;
+}
+    console.log(lottoGenerator());
+    </script>
+
+<!-- includes로 중복제거하는 방법. IE 지원안됨  -->
+    <script>
+    function randomFunc(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+    }
+
+    function lottoGenerator() {
+        let lottoArr = [];
+        while (lottoArr.length < 6) {
+            let result = randomFunc(1, 46);
+            // 중복 판단, 다만 include는 IE지원안됨
+            // 중복되는 숫자가 없다면
+            if(!lottoArr.includes(result)) {
+                lottoArr.push(result);
+            }
+        }
+        return lottoArr;
+    }
+    console.log(lottoGenerator());
+    </script>
+
+    <!-- Set으로 로또 생성하는 법  -->
+    <script>
+    let lottoSet = new Set();
+    function lottoGenerator() {
+
+        while (lottoSet.size < 6) {
+
+        let result = randomNum(1, 46);
+
+        lottoSet.add(result);
+    
+    }
+    return lottoSet;
+    }
+    </script>
+</html>
