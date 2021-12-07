@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>renderTable</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 실무에서는 onclick 이렇게 인라인으로 사용하지 않아요. 나중에 이벤트 코드는 다시 다듬겠습니다. -->
+    <!-- onclick 있으면 도망쳐라! html,css,js의 경계가 없는 곳이다. 배울게 없을 가능성이 크다. renderTable 함수 호출, data는 페이지 로드 후 내가 눌러야 나오는 데이터다. data.js의 data(아규먼트) -->
+    <!-- 렌더 테이블: 사용자가 보기 좋게 테이블을 뿌려준 것 -->
+    <button onclick="renderTable(data)">데이터 호출!</button>
+    <!-- 나이의 평균을 콘솔창에 찍어준다. -->
+    <button onclick="averageAge(data)">나이의 평균!</button>
+    <!-- 부트스트랩 꾸며주는 클래스, 쿼리셀렉터로 잡기 위한  -->
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <!-- sortTable은  정렬해서 주는 것 -->
+                <th onclick="sortTable('index')">index</th>
+                <th onclick="sortTable('picture')">picture</th>
+                <th onclick="sortTable('age')">age</th>
+                <th onclick="sortTable('eyeColor')">eyeColor</th>
+                <th onclick="sortTable('name')">name</th>
+                <th onclick="sortTable('gender')">gender</th>
+                <th onclick="sortTable('company')">company</th>
+                <th onclick="sortTable('email')">email</th>
+                <th onclick="sortTable('phone')">phone</th>
+                <th onclick="sortTable('address')">address</th>
+            </tr>
+        </thead>
+        <!-- 렌더테이블에서  -->
+        <tbody></tbody>
+    </table>
+    <script src="data.js"></script>
+    <script>
+        let click = true;
+        let maleAverage = 0;
+        let femaleAverage = 0;
+
+        function averageAge(data) {
+            let female = [];
+            let male = [];
+            let s = 0;
+            // sum에 대한 변수 s
+            // data 여기서는 파라미터다.
+
+            // 이터레이터의 젠더가 male이냐 female이냐, Mail이면 푸쉬해라 이터레이터 에이쥐를 , female
+            for(const iterator of data){
+                if (iterator.gender == 'male') {
+                    male.push(iterator.age);
+                } else {
+                    female.push(iterator.age);
+                }
+            }
+            //console.log(male);
+            //console.log(female);
+
+            // 순회하면서 s에 누적해서 합계를 구한다. 
+            // 길이로 나눠서 평균을 구한다.
+            male.forEach(i => s +=i)
+            maleAverage = (s / male.length)
+
+            s = 0;
+            female.forEach(i => s +=i)
+            femaleAverage = (s / female.length)
+
+            console.log(maleAverage);
+            console.log(femaleAverage);
+        }
+        
+        function sortTable(key) {
+            // (a, b) => (a[key] < b[key] ? -1 : (a[key] > b[key] ? 1 : 0)) 는 
+            // 이해하는 코드가 아니라 mdn에 정의된 코드, 바꾸면 안된다. 닌자코드 아니다.
+            // if,else문은 오름차순내림차순을 위한 코드, click은 flag 변수 
+            // click이 true 일 때 false로 바꾸고 false 일때 true로 바꿔줍니다!
+            // 처음에 true, else는 false인데 click하면 true
+            // data.sort는 원본을 
+            if (click) {
+                click = false;
+                data.sort((a, b) => (a[key] < b[key] ? -1 : (a[key] > b[key] ? 1 : 0)));
+            } else {
+                click = true;
+                data.sort((a, b) => (a[key] > b[key] ? -1 : (a[key] < b[key] ? 1 : 0)))
+            }
+            renderTable(data)
+        }
+        
+        function renderTable(data) {
+            let tbodyData = []; // 'data1', 'data2' 이렇게 문자열로 들어간다. data.push data를 모두 순회할때까지
+            for (const iterator of data) { // tbodyData=[];에 data.js의 블록 하나의 단위로 들어간다. 블록 8개니까 8개까지 반복
+                //console.log(iterator);
+                tbodyData.push(` 
+                    <tr>
+                        <td>${iterator.index}</td>
+                        <td>${iterator.picture}</td>
+                        <td>${iterator.age}</td>        
+                        <td>${iterator.eyeColor}</td>
+                        <td>${iterator.name}</td>
+                        <td>${iterator.gender}</td>
+                        <td>${iterator.company}</td>
+                        <td>${iterator.email}</td>
+                        <td>${iterator.phone}</td>
+                        <td>${iterator.address}</td>
+                    </tr>
+                `) // ``로 이뤄진 문자열
+            }
+            // console.log(tbodyData);
+            // <tbody></tbody>를 잡는 쿼리 셀렉터
+            document.querySelector('.table > tbody').
+            // 문자열로 다시 조립해서 넣어준다.
+            innerHTML = tbodyData.join('');
+        }
+    </script>
+</body>
+</html>
