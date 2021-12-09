@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax 통신 연습</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<style>
+    .login {
+        width: 400px;
+        height: 200px;
+        border: 5px solid black;
+        border-radius: 10px;
+    }
+
+    .login .login-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login .login-form .login-lg{
+        font-weight: 700;
+    }
+</style>
+<body>
+    <section class="login">
+        <form class="login-form">
+            <p class="login-lg">로그인</p>
+            <div class="login-id">
+                <label for="id">아이디 </label><br>
+                <input type="text" id="login-id" placeholder="id" class="input-id"><br>
+            </div>
+            <div class="login-pw">
+                <label for="pw">비밀번호 </label><br>
+                <input type="password" id="login-pw" placeholder="password" class="input-pw">
+            </div>
+            <button type="button" class="btn-login">로그인!!</button>
+        </form>
+    </section>
+    <!-- <div class="inputUserData">입력한 값</div> -->
+    <div class="dataField">data</div> 
+    <script>
+         let userData = [
+            {
+                "_id": "61b05e53cc219b458f42e0e5",
+                "id": "Emerson",
+                "pw": "22626beb-46f2-43b9-be64-2fbaf4874b6d",
+                "index": 5,
+                "picture": "http://placehold.it/32x32",
+                "age": 39,
+                "eyeColor": "brown",
+                "name": "Diana Simpson",
+                "gender": "female",
+                "company": "AQUOAVO",
+                "email": "dianasimpson@aquoavo.com",
+                "phone": "+1 (805) 509-3533",
+                "address": "289 Wolf Place, Jessie, Nevada, 4775",
+                "grade": "다이아몬드"
+            },
+            {
+                "_id": "61b05e53b19b300b847a81f7",
+                "id": "hojun",
+                "pw": "1234",
+                "index": 6,
+                "picture": "http://placehold.it/32x32",
+                "age": 25,
+                "eyeColor": "green",
+                "name": "박경서",
+                "gender": "male",
+                "company": "JUMPSTACK",
+                "email": "cobbmcfadden@jumpstack.com",
+                "phone": "+1 (965) 517-2000",
+                "address": "155 Ryder Street, Ruffin, Louisiana, 6528",
+                "grade": "관리자"
+            },
+            {
+                "_id": "61b05e53c9deb83252fc7f75",
+                "id": "Baker",
+                "pw": "dd20c5f8-b5ce-444c-9bcd-9a6c5c481ad0",
+                "index": 7,
+                "picture": "http://placehold.it/32x32",
+                "age": 38,
+                "eyeColor": "blue",
+                "name": "Richardson Ferguson",
+                "gender": "male",
+                "company": "TERASCAPE",
+                "email": "richardsonferguson@terascape.com",
+                "phone": "+1 (990) 516-2175",
+                "address": "123 Hale Avenue, Eggertsville, North Carolina, 115",
+                "grade": "골드"
+            }
+        ];
+
+        
+
+        $('btn-login').click(function(){
+            let id = $('.id').val();
+            let pw = $('.pw').val();
+
+            로그인성공데이터 = userData.find(user => user.id === id && user.px === pw);
+
+            if(로그인성공데이터) {
+                
+            }
+        })
+    </script>
+</body>
+</html>
