@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+    </style>
+</head>
+<body>
+    <article class="parent">
+        <button class="btn" type="button">버튼</button>
+    </article>
+    
+    <script>
+        const parent = document.querySelector('.parent');
+        const btn = document.querySelector('.btn');
+
+        btn.addEventListener('click', (event) => {
+            console.log("btn capture!");
+        }, true);
+
+        window.addEventListener('click', () => {
+            console.log("window capture!");
+        }, true); // true : 캡처링 단계의 이벤트가 발생하도록 합니다.
+        // 아무것도 안쓰면 버블링 이벤트,true는 캡처링 이벤트
+        document.addEventListener('click', () => {
+            console.log("document capture!");
+        }, true);
+
+        parent.addEventListener('click', () => {
+            console.log("parent capture!");
+        }, true);
+
+        // 버블링 이벤트 시작
+        // 윈도우를 제일 위로 올려도 버블링 이벤트로 제일 마지막에 실행된다.
+        window.addEventListener('click', () => {
+            console.log("window bubble!");
+        });
+
+        btn.addEventListener('click', (event) => {
+            console.log("btn bubble!");
+        })
+
+        parent.addEventListener('click', () => {
+            console.log("parent bubble!");
+        });
+
+        document.addEventListener('click', () => {
+            console.log("document bubble!");
+        });
+
+        window.addEventListener('click', () => {
+            console.log("window bubble!");
+        });
+    </script>
+</body>
+
+</html>

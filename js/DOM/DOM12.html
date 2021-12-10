@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트의 this</title>
+</head>
+<body>
+    <!-- 이벤트 리스너 함수 내부에서의 this 값은 이벤트가 연결된 노드를 참조합니다 -->
+    <article class="parent">
+        <ol>
+            <li><button class="btn-first" type="button">버튼1</button></li>
+            <li><button type="button">버튼2</button></li>
+            <li><button type="button">버튼3</button></li>
+        </ol>
+    </article>
+    
+    <script>
+        const parent = document.querySelector('.parent');
+        parent.addEventListener('click', function (event) {
+            console.log(this);
+        })
+        // (event) 인자이름은 마음대로 정해도 된다. (evt)해도된다.
+        // currentTarget 은 null로 초기화되어있다.
+
+        // const parent = document.querySelector('.parent');
+        // parent.addEventListener('click', (event) => {
+        //     console.log(this);
+        // }
+        // 화살표 함수 안에서 this는 상위 스코프의 this 이므로 window가 찍힌다.
+    </script>
+</body>
+</html>
