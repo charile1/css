@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ajax로 데이터를 불러오기 -->
+    <script>
+        // https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects/JSON
+        // 일단, 변수로 둘 JSON의 URL을 가져와야 합니다.
+        var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
+
+        // 요청을 만들기 위해, 우리는 new 키워드를 이용하여 XMLHttpRequest 생성자로부터 새로운 request 인스턴스를 생성해야 합니다. 
+        var request = new XMLHttpRequest();
+        // 이제 open() 메소드를 사용해 새로운 요청을 만듭니다.
+        request.open('GET', requestURL);
+        // send() 메서드를 이용해 요청을 보냅시다.
+        request.responseType = 'json';
+        request.send();
+
+        // 서버의 응답을 기다리고, 그것의 처리까지
+        request.onload = function() {
+            var superHeroes = request.response;
+            console.log(superHeroes);
+        }
+    </script>
+</body>
+</html>
