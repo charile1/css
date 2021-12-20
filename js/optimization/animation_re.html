@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 100px;
+        }
+
+        .target {
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+            transition: 0.1s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="target"></div>
+    <script>
+        // 움직여야할 타켓 설정
+        // pos 얼마만큼 거리를 이동할지 변수
+        // keys 어떤 키를 눌렀는지 상태를 의미 , 뗏을떄도 저장
+        const target = document.querySelector(".target");
+        let pos = 0;
+        let keys = {};  
+
+        // move,stop 은 리스너 함수
+        document.addEventListener('keydown', move);
+        document.addEventListener('keyup', stop);
+
+        // 눌렀을때(move)와 떼져있을 때(stop)의 상태를 저장하는 함수
+        // 누르면 움직이고 떼면 멈춰야한다.
+        // 오른쪽키는 누르면 true; 떼면 false;
+        // 왼쪽키 누르면 false, 떼면 false;
+        function move(event) {
+            keys[event.key] = true;
+            // console.log(keys);
+        }
+        function stop(event) {
+            keys[event.key] = false;
+            // console.log(keys);
+        }
+
+        // 움직임을 처리할 함수
+        function play() {
+            if (keys.ArrowRight) {
+                pos += 5;
+                target.style.transform = `translateX(${pos}px)`
+            }
+            if (keys.ArrowLeft) {
+                pos -= 5;
+                target.style.transform = `translateX(${pos}px)`
+            }
+            window.requestAnimationFrame(play);
+        }
+
+        // requestAnimationFrame가 하는 일 : 브라우저에게 다음 리페인트가 진행되기 전에, 해당 애니메이션을 업데이트하기위해 미리 호출
+        // 여기서는 play가 애니메이션 함수, 끝나는 코드를 입력안하면 무한실행된다. 브라우저가 멈추진 않는다. 브라우저를 계속 감시한다. 재귀적 실행
+        window.requestAnimationFrame(play);
+
+        // function test(){
+            // console.log('play!!');
+            // window.requestAnimationFrame(test);
+        // }
+
+        // function move(event) {
+        //     const keyName = event.key;
+        //     if (keyName === 'ArrowRight') {
+        //         pos += 5;
+        //         target.style.transform = `translateX(${pos}px)`;
+        //     }
+        //     if (keyName === 'ArrowLeft') {
+        //         pos -= 5;
+        //         target.style.transform = `translateX(${pos}px)`;
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

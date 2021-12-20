@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+</head>
+<body>
+    <h1> 돔 접근 테스트</h1>
+    <article class="parent">
+        <figure>
+            <img src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202112/13/e4725896-2596-44f0-8b95-ab3faaa76d7d.jpg" alt="" class="figImg">
+            <figcaption class="figCap">유재석씨가 코로나에 감염되었다는 슬픈 소식입니다.ㅠㅠ</figcaption>
+        </figure>
+    </article>
+    <script>
+        // DOM 접근은 가능한 좁은 범위에서 적게 사용합니다.
+        // documnet에서 parent로 탐색할 요소를 바꿔줬습니다.
+        // 한 번만 훑고 안에 있는 좁은, 우리가 원하는 부분만 탐색하게 합니다.
+        const parent = document.querySelector('.parent');
+        const targetImg = parent.querySelector('.figImg');
+        const targetTxt = parent.querySelector('.figCap');
+        // 이렇게 안하고 위에처럼 사용합시다.
+        // const targetImg = document.querySelector('.figImg');
+        // const targetTxt = document.querySelector('.figCap');
+
+        targetImg.setAttribute('src','https://file.mk.co.kr/meet/neds/2021/07/image_readtop_2021_654175_16256093474708254.jpg');
+        targetTxt.textContent = '우리 재석짱은 아프면 안돼';
+    </script>
+</body>
+</html>
