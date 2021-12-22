@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>    
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+</head>
+<body>
+    <div class='canvas '></div>
+    <script>
+        // DOM 선택
+        const canvas = d3.select('.canvas');
+
+        const svg = canvas
+        .append('svg') // 추가
+        .attr('height', 1000) // 속성지정
+        .attr('width', 1000);
+
+        svg.append('text') // text
+        .attr('x', 200)
+        .attr('y', 200)
+        .attr('fill', 'black')
+        .text('hello world')
+        .style('font-weight', 'bold')
+        .style('font-size', '34px')
+        // .style('font-size', 'Nanum Pen Script'); // google font style은 바로 적용 안됨 (import를 사용해서 root에 추가하는 방법으로 해결 가능)
+
+        svg.append('rect') // 사각형
+        .attr('width', 200)
+        .attr('height', 200)
+        .attr('fill', 'hotpink')
+        .attr('x', 10) //x축 // 숫자를 점점 넓혀보세요.
+        .attr('y', 10); // y축
+
+        svg.append('circle') // 원형
+        // .attr('x', 10)
+        // .attr('y', 10)
+        .attr('r', 50) // 반지름 - 숫자를 점점 넓혀보세요.
+        .attr('cx', 200) // x축
+        .attr('cy', 200) // y축
+        .attr('fill', '#0000ff');
+
+        svg.append('line') // 선
+        .attr('x1', 200) // x축 시작점
+        .attr('x2', 300) // x축 종료지점
+        .attr('y1', 200) // y축 시작점
+        .attr('y2', 300) // x축 종료지점
+        .attr('stroke', 'black');
+        
+    </script>
+</body>
+</html>
